@@ -1,3 +1,5 @@
+package it.unical.softEng;
+
 public class GestoreLibreria {
   private GestoreLibreria instance;
 
