@@ -1,0 +1,26 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor Utente
+
+rectangle "Sistema Gestione Libreria" {
+    usecase "Ricerca elemento" as UCex
+    usecase "Seleziona elemento" as UC1
+    usecase "Avvia modifica" as UC2
+    usecase "Seleziona campo da modificare" as UC3
+    usecase "Inserisce nuovo valore" as UC4
+    usecase "Termina modifica" as UC5
+    usecase "Visualizza anteprima" as UC6
+    usecase "Conferma modifiche" as UC7
+}
+
+Utente --> UC1
+UC1 --> UCex: <<include>>
+UC1 --> UC2
+UC2 --> UC3
+UC3 --> UC4
+UC4 --> UC5
+UC5 --> UC6
+UC6 --> UC7
+@enduml

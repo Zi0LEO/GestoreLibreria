@@ -1,0 +1,24 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor Utente
+
+rectangle "Sistema Gestione Libreria" {
+    usecase "Ricerca elemento" as UCex
+    usecase "Click su 'Aggiungi collezione'" as UC1
+    usecase "Digita nome" as UC2
+    usecase "Seleziona elemento" as UC3
+    usecase "Click su 'Aggiungi'" as UC4
+    usecase "Conferma creazione" as UC5
+    usecase "Salva" as UC6
+}
+
+Utente --> UC1
+UC1 --> UC2
+UC2 --> UC3
+UC3 --> UCex: <<include>>
+UC3 --> UC4
+UC4 --> UC5
+UC5 --> UC6
+@enduml

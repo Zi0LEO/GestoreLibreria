@@ -1,0 +1,20 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor Utente
+
+rectangle "Sistema Gestione Libreria" {
+    usecase "Digita parola chiave nella casella" as UC1
+    usecase "Clicca su 'Ricerca'" as UC2
+    usecase "Visualizza lista risultati" as UC3
+    usecase "Clicca sul risultato desiderato" as UC4
+    usecase "Visualizza dettagli elemento" as UC5
+}
+
+Utente --> UC1
+UC1 --> UC2
+UC2 --> UC3
+UC3 --> UC4
+UC4 --> UC5
+@enduml
