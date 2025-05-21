@@ -1,0 +1,18 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor Utente
+
+rectangle "Sistema Gestione Libreria" {
+    usecase "Click su 'Aggiungi libro'" as UC1
+    usecase "Inserisci dettagli libro" as UC2
+    usecase "Conferma dati" as UC3
+    usecase "Salva libro" as UC4
+}
+
+Utente --> UC1
+UC1 --> UC2
+UC2 --> UC3
+UC3 --> UC4
+@enduml
