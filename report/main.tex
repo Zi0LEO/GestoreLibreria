@@ -1,62 +1,4 @@
-\documentclass[a4paper,12pt]{report}
-\usepackage{fontspec}
-\setmainfont{Cambria}
-\setsansfont{Calibri}
-\setmonofont{Consolas}
-\usepackage{makecell}
-\usepackage{lmodern}
-\usepackage{geometry}
-\usepackage{longtable}
-\usepackage{tabularx}
-\usepackage{booktabs}
-\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=5cm}
-\usepackage{array}
-\usepackage{xcolor}
-\usepackage{graphicx}
-\usepackage{titlesec}
-\usepackage{fancyhdr}
-\pagestyle{plain}
-\setlength{\headheight}{67pt}   % height of the header box
-\setlength{\headsep}{25pt}      % vertical space between header and body text
-\setlength{\footskip}{30pt}     % distance from bottom of body to bottom of footer
-\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\renewcommand{\headrulewidth}{0pt}
-
-\fancypagestyle{plain}{
-  \fancyhf{}
-  \fancyhead[]{
-    \begin{center}
-      \begin{tabular}{|C{10cm}|C{3.5cm}|}
-        \hline
-        \textbf{Corso di Ingegneria del Software} \newline Deliverable di progetto & \textbf{2024--2025} \\
-        \hline
-      \end{tabular}
-    \end{center}
-  }
-  \fancyfoot[]{
-    \begin{center}
-      \begin{tabular}{|C{2cm}|C{11.5cm}|}
-        \hline
-        \thepage & \\
-        \hline
-      \end{tabular}
-
-    \end{center}
-  }
-
-}
-\fancypagestyle{title}{
-  \fancyhf{}
-  \fancyhead[C]{
-    \begin{tabular}{|C{10cm}|C{3.5cm}|}
-      \hline
-      \textbf{Corso di Ingegneria del Software} \newline Deliverable di progetto & \textbf{2024--2025} \\
-      \hline
-    \end{tabular}
-  }
-  \renewcommand{\footrulewidth}{0pt}
-}
-
+\input{preamble}
 \begin{document}
 
 \begin{titlepage}
@@ -72,7 +14,7 @@
       {\Huge \textbf{\textcolor{red}{personale}}}
     \end{center}
 
-    \vspace*{1.5cm}
+    \vspace*{2.5cm}
 
     \noindent
     \begin{tabular}{|>{\bfseries}p{3cm}|p{12cm}|}
@@ -82,8 +24,7 @@
       \hline
     \end{tabular}
 
-    \vspace*{0.5cm}
-
+    \vspace*{2.5cm}
 
     \begin{tabular}{|l|l|l|}
       \hline
@@ -100,28 +41,27 @@
 \tableofcontents
 \newpage
 \pagestyle{plain}
-\subsection{List of Challenging/Risky Requirements or Tasks}\label{list-of-challengingrisky-requirements-or-tasks}
+{\Large \textbf{List of Challenging/Risky Requirements or Tasks}\label{list-of-challengingrisky-requirements-or-tasks}}
 
-\begin{tabularx}{\textwidth}{|X|X|X|X|}
-  \hline
-  \textbf{Challenging Task}&
-  \textbf{Date the task is identified}&
-  \textbf{Date the challenge is resolved}&
-  \textbf{Explanation on how the challenge has been managed} \\
-  \hline
-  test & test & test & test \\
-  \hline
-\end{tabularx}
+\begin{center}
+  \begin{tabularx}{\textwidth}{|X|X|X|X|}
+    \hline
+    \textbf{Challenging Task}&
+    \textbf{Date the task is identified}&
+    \textbf{Date the challenge is resolved}&
+    \textbf{Explanation on how the challenge has been managed}\\
+    \hline
+  \end{tabularx}
+\end{center}
 
+\newpage
 \section{Stato dell'arte}
 
-A. Stato dell'Arte
-
 Tra le applicazioni maggiormente utilizzate per la gestione di librerie
-ho potuto testare almeno 2 soluzioni utili in merito. Si tratta di
+ho potuto testare almeno 2 soluzioni utili. Si tratta di
 Obsidian e Calibre.
 
-\subsection{Obsidian}\label{obsidian}
+\subsection{Obsidian}
 
 Obsidian è un'applicazione più generalmente utilizzata per la creazione
 di note, mappe mentali eappunti personali, ma grazie alla grande
@@ -130,7 +70,7 @@ adattare a qualsiasi utilizzo. Uno dei tanti utilizzi da me provati è
 stato proprio quello di mantenere la mia collezione di libri, con tanto
 di immagine di copertina, valutazione e commenti.
 
-\subsubsection{Vantaggi}\label{vantaggi}
+\subsubsection{Vantaggi}
 
 \begin{itemize}
   \item
@@ -142,7 +82,7 @@ di immagine di copertina, valutazione e commenti.
     Informazioni memorizzate in locale tramite file .md;
 \end{itemize}
 
-\subsubsection{Svantaggi}\label{svantaggi}
+\subsubsection{Svantaggi}
 
 \begin{itemize}
   \item
@@ -152,13 +92,13 @@ di immagine di copertina, valutazione e commenti.
     Complessa inizializzazione da parte di un utente non tecnico;
 \end{itemize}
 
-\subsection{Calibre}\label{calibre}
+\subsection{Calibre}
 
 Calibre è un'applicazione open-source orientata alla gestione di Ebook,
 offre strumenti molto utili come la conversione di formati, gestione di
 metadati e sincronizzazione tra dispositivi
 
-\subsubsection{Vantaggi}\label{vantaggi-1}
+\subsubsection{Vantaggi}
 
 \begin{itemize}
   \item
@@ -169,7 +109,7 @@ metadati e sincronizzazione tra dispositivi
     Totalmente in locale;
 \end{itemize}
 
-\subsubsection{Svantaggi}\label{svantaggi-1}
+\subsubsection{Svantaggi}
 
 \begin{itemize}
   \item
@@ -178,7 +118,7 @@ metadati e sincronizzazione tra dispositivi
     Eccessive funzionalità offerte rendono l'interfaccia molto complessa.
 \end{itemize}
 
-\subsection{Considerazioni}\label{considerazioni}
+\subsection{Considerazioni}
 
 Osservando punti di forza e di debolezza delle applicazioni menzionate
 si è potuto derivare alcune funzionalità utili che saranno implementate
@@ -195,12 +135,11 @@ nel sistema:
     Possibilità di aggiunta di funzionalità aggiuntive.
 \end{itemize}
 
-B. Raffinamento dei Requisiti
-
-\emph{\textbf{B.1 Servizi (con prioritizzazione)}}
+\newpage
+\section{Raffinamento dei Requisiti}
+\subsection{Servizi (con prioritizzazione)}
 
 \begin{enumerate}
-  \def\labelenumi{\arabic{enumi}.}
   \item
     \textbf{Memorizzazione in memoria secondaria}. Importanza alta,
     complessità bassa. Tutti i dati immagazzinati nel sistema dovranno
@@ -237,7 +176,7 @@ B. Raffinamento dei Requisiti
     tramite interfaccia grafica.
 \end{enumerate}
 
-\emph{\textbf{B.2 Requisiti non Funzionali}}
+\subsection{Requisiti non Funzionali}
 
 \begin{itemize}
   \item
@@ -255,10 +194,10 @@ B. Raffinamento dei Requisiti
     comuni, quindi Linux, MacOs e Windows.
 \end{itemize}
 
-\emph{\textbf{B.3 Scenari d'uso dettagliati con relativi Use Case
-Diagrams}}
+\subsection{Scenari d'uso dettagliati con relativi Use Case
+Diagrams}
 
-\subsubsection{1. Aggiunta libro}\label{aggiunta-libro}
+\subsubsection{Aggiunta libro}\label{aggiunta-libro}
 
 \begin{itemize}
   \item
@@ -271,11 +210,11 @@ Diagrams}}
     L'utente preme sul tasto ``Salva''.
 \end{itemize}
 
-\includegraphics[width=5.57083in,height=0.62986in]{media/image1.png}
+\begin{center}
+  \includegraphics[width = \textwidth]{media/useCase1.png}
+\end{center}
 
-\subsubsection{}\label{section-2}
-
-\subsubsection{2. Aggiunta collezione}\label{aggiunta-collezione}
+\subsubsection{Aggiunta collezione}\label{aggiunta-collezione}
 
 \begin{itemize}
   \item
@@ -283,7 +222,7 @@ Diagrams}}
   \item
     L'utente inserisce il nome della collezione;
   \item
-    L'utente \ul{seleziona l'elemento desiderato;}
+    L'utente \underline{seleziona l'elemento desiderato;}
   \item
     L'utente preme il tasto ``Aggiungi'';
   \item
@@ -294,32 +233,32 @@ Diagrams}}
     L'utente preme sul tasto salva.
 \end{itemize}
 
-\includegraphics[width=5.10903in,height=0.70625in]{media/image2.png}
+\begin{center}
+  \includegraphics[width=5.10903in,height=0.70625in]{media/useCase2.png}
+\end{center}
 
-\subsubsection{}\label{section-3}
-
-\subsubsection{3. Selezione elemento}\label{selezione-elemento}
+\subsubsection{Selezione elemento}\label{selezione-elemento}
 
 \begin{itemize}
   \item
     L'utente digita parola chiave nell'apposita casella;
   \item
-    L'utente clicca su ``Ricerca'';O
+    L'utente clicca su ``Ricerca'';
   \item
     Il sistema restituisce una lista di risultati;
   \item
     L'utente clicca sul risultato desiderato;
 \end{itemize}
 
-\includegraphics[width=5.00556in,height=0.49306in]{media/image3.png}
+\begin{center}
+  \includegraphics[width=\textwidth]{media/useCase3.png}
+\end{center}
 
-\subsubsection{}\label{section-4}
-
-\subsubsection{4. Modifica dati}\label{modifica-dati}
+\subsubsection{Modifica dati}\label{modifica-dati}
 
 \begin{itemize}
   \item
-    L'utente \ul{seleziona l'elemento desiderato;}
+    L'utente \underline{seleziona l'elemento desiderato;}
   \item
     L'utente preme sul tasto ``Modifica'';
   \item
@@ -334,62 +273,67 @@ Diagrams}}
     L'utente preme il tasto ``Conferma''.
 \end{itemize}
 
-\includegraphics[width=5.15972in,height=0.54236in]{media/image4.png}
+\begin{center}
+  \includegraphics[width=\textwidth]{media/useCase4.png}
+\end{center}
 
-\subsubsection{}\label{section-5}
-
-\subsubsection{5. Elimina elemento}\label{elimina-elemento}
+\subsubsection{Elimina elemento}\label{elimina-elemento}
 
 \begin{itemize}
   \item
-    L'utente \ul{ricerca l'elemento desiderato}
+    L'utente \underline{ricerca l'elemento desiderato}
   \item
     L'utente seleziona l'elemento desiderato;
   \item
 \end{itemize}
 
-\emph{\textbf{A.4 Excluded Requirements}}
+\subsection{Excluded requirements}
 
 \emph{Descrivere i servizi eventualmente i esclusi, e spiegare il
 perchè}
 
-\emph{\textbf{A.5 Assunzioni}}
-
+\subsection{Assunzioni}
 \emph{\textless Briefly document, in this section, the most relevant
   requirement assumptions/decisions you had to made during your
 project\textgreater{}}
 
-C. Architettura Software\\
+\newpage
+\section{Architettura Software}
 \emph{\textless IF RELEVANT, Report here both the static and the dynamic
   view of your system design, in terms of a Component Diagram, and their
 related Sequence Diagrams \textgreater{}}
 
-\emph{\textbf{C.1 The static view of the system: Component Diagram}}
+\subsection{The static view of the system: Component Diagram}
 
-\emph{\textbf{C.2 The dynamic view of the software architecture:
-Sequence Diagram}}
+\subsection{The dynamic view of the software architecture:
+Sequence Diagram}
 
-D. Dati e loro modellazione (se il sistema si interfaccia con un DBMS)
+\newpage
+\section{Dati e la loro modellazione}
 
 \emph{Definite le sorgenti di dati a voi necessarie per realizzare I
   servizi di cui sopra. Modellate tali dati tramite un ER o similari.
   Specificate se e quali di tali dati sono gia' forniti da applicativi
 esistenti.}
 
-E. Scelte Progettuali (Design Decisions)\\
+\newpage
+\section{Scelte Progettuali (Design Decisions)}
 \textless Document here the \textbf{5} most important design decisions
 you had to take. You can use both a textual or a diagrammatic
 specification.\textgreater{}
 
-F. Progettazione di Basso Livello
+\newpage
+\section{Progettazione di Basso Livello}
 
-G. Spiegare come il progetto soddisfa i requisiti funzionali (FRs) e
-quelli non funzionali (NFRs) \emph{\textless Report in this section how
+\newpage
+\section{Spiegare come il progetto soddisfa i requisiti funzionali (FRs) e
+quelli non funzionali (NFRs)}
+\emph{\textless Report in this section how
   the architectural and low level design you produced satisfies the FRs
 and the NFRs\textgreater{}}
 
 Appendix. Prototype\\
-\includegraphics[width=1.08333in,height=1.10417in]{media/image5.png}\emph{\textless Provide
+\emph{\textless Provide
   a brief report on your prototype, and especially: information on what
   you have implemented, how the implementation covers the FR and NFR, how
   the prototypes demonstrates your project correctness with respect to the
