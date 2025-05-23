@@ -1,0 +1,19 @@
+@startuml
+
+package "Gestore Libreria Personale"{
+  node "Model"{
+    [Books] - () "Element"
+    [Library] - () "Database"
+    () "Element" --> [Mediator]
+    () "Database" --> [Mediator]
+  }
+  node "Controller"{
+    [ControllerTest]
+  }
+  node "View"{
+    [ViewTest]
+  }
+  [Mediator] -> [ControllerTest]
+  [ControllerTest] -> [ViewTest]
+}
+@enduml
