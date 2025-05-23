@@ -9,9 +9,15 @@ public class Book implements ElementComposite{
   private String review;
   private ReadingState state;
 
-  public Book(){
+  public Book(String tile, String author, String ISBN, int valutation, String review) {
+    this.title = tile;
+    this.author = author;
+    this.ISBN = ISBN;
+    this.valutation = valutation;
+    this.review = review;
     this.state = new ToRead(this);
   }
+
   public void setTitle(String title) {
     this.title = title;
   }
