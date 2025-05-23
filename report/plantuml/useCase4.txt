@@ -5,9 +5,9 @@ skinparam packageStyle rectangle
 actor Utente
 
 rectangle "Sistema Gestione Libreria" {
-    usecase "Ricerca elemento" as UCex
-    usecase "Seleziona elemento" as UC1
-    usecase "Avvia modifica" as UC2
+    usecase "Seleziona elemento" as UCex
+    usecase "Ricerca elemento" as UC1
+    usecase "Clicca su 'Modifica'" as UC2
     usecase "Seleziona campo da modificare" as UC3
     usecase "Inserisce nuovo valore" as UC4
     usecase "Termina modifica" as UC5

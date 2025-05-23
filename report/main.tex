@@ -222,7 +222,7 @@ Diagrams}
   \item
     L'utente inserisce il nome della collezione;
   \item
-    L'utente \underline{seleziona l'elemento desiderato;}
+    L'utente \underline{ricerca l'elemento desiderato;}
   \item
     L'utente preme il tasto ``Aggiungi'';
   \item
@@ -258,7 +258,7 @@ Diagrams}
 
 \begin{itemize}
   \item
-    L'utente \underline{seleziona l'elemento desiderato;}
+    L'utente \underline{ricerca l'elemento desiderato;}
   \item
     L'utente preme sul tasto ``Modifica'';
   \item
@@ -283,19 +283,46 @@ Diagrams}
   \item
     L'utente \underline{ricerca l'elemento desiderato}
   \item
-    L'utente seleziona l'elemento desiderato;
+    L`utente preme il tasto su 'Elimina';
   \item
+    L'utente preme il tasto 'Conferma';
 \end{itemize}
+\begin{center}
+  \includegraphics[width=\textwidth]{media/useCase5.png}
+\end{center}
 
-\subsection{Excluded requirements}
+\subsubsection{Avanza stato libro}
+\begin{itemize}
+  \item
+    L'utente \underline{ricerca un libro};
+  \item
+    L`utente preme il tasto utile all'avanzamento della lettura;
+\end{itemize}
+\begin{center}
+  \includegraphics[width=\textwidth]{media/useCase6.png}
+\end{center}
 
-\emph{Descrivere i servizi eventualmente i esclusi, e spiegare il
-perchè}
+\subsection{Funzionalità escluse}
+
+\begin{itemize}
+  \item
+    \textbf{Sincronizzazione su più dispositivi}, non rientra nella filosofia dell'applicazione, che si pone come una libreria completamente offline.
+  \item
+    \textbf{Gestione di segnalibri}, sarebbero funzioni più legate alla gestione di ebook, che non è l'obiettivo della nostra applicazione.
+  \item
+    \textbf{Recupero automatico di metadati}, comprometterebbe il funzionamento in locale.
+\end{itemize}
 
 \subsection{Assunzioni}
 \emph{\textless Briefly document, in this section, the most relevant
   requirement assumptions/decisions you had to made during your
 project\textgreater{}}
+\begin{itemize}
+  \item L'applicazione sarà monoutente. Questa decisione rientra nella filosofia per la quale l'applicazione nella sua interezza si pone come una libreria virtuale.
+  \item Tutti i dati saranno in locale, con possibilità di esportarli in file di più formati.
+  \item Le modifiche saranno prima salvate in memoria principale, per poi essere trasferite in memoria secondaria soltanto al momento del salvataggio. Questa decisione é stata presa per migliorare le prestazioni.
+  
+\end{itemize}
 
 \newpage
 \section{Architettura Software}

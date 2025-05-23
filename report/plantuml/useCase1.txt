@@ -8,7 +8,7 @@ rectangle "Sistema Gestione Libreria" {
     usecase "Click su 'Aggiungi libro'" as UC1
     usecase "Inserisci dettagli libro" as UC2
     usecase "Conferma dati" as UC3
-    usecase "Salva libro" as UC4
+    usecase "Salva" as UC4
 }
 
 Utente --> UC1
