@@ -2,8 +2,9 @@ package it.unical.softEng.composite;
 
 import it.unical.softEng.state.ReadingState;
 import it.unical.softEng.state.ToRead;
+import it.unical.softEng.visitor.Visitor;
 
-public class Book implements ElementComposite{
+public class Book implements ElementComposite {
   private String title, author, ISBN;
   private int valutation;
   private String review;
@@ -16,6 +17,21 @@ public class Book implements ElementComposite{
     this.valutation = valutation;
     this.review = review;
     this.state = new ToRead(this);
+  }
+
+  @Override
+  public String getId(){
+    return ISBN;
+  }
+
+  @Override
+  public void accept(Visitor visitor) {
+    visitor.visit(this);
+  }
+
+  @Override
+  public void show() {
+    System.out.println(title + ", " + author + ", " + ISBN + ", " + valutation + ",\n" + review);
   }
 
   public void setTitle(String title) {
