@@ -3,6 +3,7 @@ package it.unical.softEng.facade;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.typeadapters.RuntimeTypeAdapterFactory;
+import it.unical.softEng.PersistentState;
 import it.unical.softEng.composite.Book;
 import it.unical.softEng.composite.Collection;
 import it.unical.softEng.composite.ElementComposite;
@@ -10,9 +11,9 @@ import it.unical.softEng.composite.ElementComposite;
 import java.io.*;
 
 public class GsonFacade {
-  private final Gson gson;
+  protected final Gson gson;
   private GsonPersistentFacade stateManager;
-  private String directoryPath;
+  protected String directoryPath;
 
   public GsonFacade() {
     RuntimeTypeAdapterFactory<ElementComposite> factory =
@@ -43,5 +44,13 @@ public class GsonFacade {
     } catch (IOException e) {
       return null;
     }
+  }
+
+  public boolean persist(PersistentState ps){
+    return stateManager.persist(ps);
+  }
+
+  public PersistentState load(){
+    return stateManager.load();
   }
 }
