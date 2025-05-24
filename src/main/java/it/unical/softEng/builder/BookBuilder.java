@@ -1,6 +1,6 @@
 package it.unical.softEng.builder;
 
-import it.unical.softEng.Book;
+import it.unical.softEng.composite.Book;
 
 public class BookBuilder {
   private String title, author, ISBN;

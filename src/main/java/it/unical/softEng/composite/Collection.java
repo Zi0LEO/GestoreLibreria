@@ -1,4 +1,4 @@
-package it.unical.softEng;
+package it.unical.softEng.composite;
 
 import java.util.LinkedList;
 import java.util.List;

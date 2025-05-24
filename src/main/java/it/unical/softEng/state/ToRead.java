@@ -1,6 +1,6 @@
 package it.unical.softEng.state;
 
-import it.unical.softEng.Book;
+import it.unical.softEng.composite.Book;
 
 public class ToRead extends ReadingState {
   public ToRead(Book book) {
