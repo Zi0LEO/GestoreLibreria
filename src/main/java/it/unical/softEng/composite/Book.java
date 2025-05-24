@@ -1,4 +1,4 @@
-package it.unical.softEng;
+package it.unical.softEng.composite;
 
 import it.unical.softEng.state.ReadingState;
 import it.unical.softEng.state.ToRead;
@@ -40,10 +40,5 @@ public class Book implements ElementComposite{
 
   public boolean read(){
     return state.advance();
-  }
-
-  @Override
-  public void show() {
-    System.out.println(title + ", " + author + ", " + ISBN + ", " + valutation + ",\n" + review);
   }
 }
