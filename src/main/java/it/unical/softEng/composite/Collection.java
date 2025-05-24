@@ -8,8 +8,8 @@ public class Collection implements ElementComposite {
   private static int idCounter = 0;
   private int id;
 
-  public String getIdCounter(){
-    return String.valueOf(idCounter);
+  public static int getIdCounter(){
+    return idCounter;
   }
   @Override
   public String getId() {
