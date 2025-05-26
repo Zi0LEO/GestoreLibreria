@@ -11,8 +11,8 @@ public class LibraryProxy implements Database {
   }
 
   @Override
-  public boolean read(ElementComposite element) {
-    return false;
+  public ElementComposite read(String id) {
+    return null;
   }
 
   @Override

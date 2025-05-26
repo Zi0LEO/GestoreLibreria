@@ -46,6 +46,11 @@ public class GsonFacade {
     }
   }
 
+  public boolean delete(String id){
+    File output = new File(directoryPath, id+".json");
+    return output.delete();
+  }
+
   public boolean persist(PersistentState ps){
     return stateManager.persist(ps);
   }
