@@ -3,7 +3,6 @@ package it.unical.softEng.facade;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.typeadapters.RuntimeTypeAdapterFactory;
-import it.unical.softEng.PersistentState;
 import it.unical.softEng.composite.Book;
 import it.unical.softEng.composite.Collection;
 import it.unical.softEng.composite.ElementComposite;
@@ -12,7 +11,6 @@ import java.io.*;
 
 public class GsonFacade {
   protected final Gson gson;
-  private GsonPersistentFacade stateManager;
   protected String directoryPath;
 
   public GsonFacade() {
@@ -49,13 +47,5 @@ public class GsonFacade {
   public boolean delete(String id){
     File output = new File(directoryPath, id+".json");
     return output.delete();
-  }
-
-  public boolean persist(PersistentState ps){
-    return stateManager.persist(ps);
-  }
-
-  public PersistentState load(){
-    return stateManager.load();
   }
 }
