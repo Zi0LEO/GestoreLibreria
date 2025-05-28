@@ -1,6 +1,6 @@
-package it.unical.softEng.builder;
+package it.softEng.model.builder;
 
-import it.unical.softEng.composite.Collection;
+import it.softEng.model.composite.Collection;
 
 public class CollectionBuilder {
   private String name;

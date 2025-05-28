@@ -1,6 +1,6 @@
-package it.unical.softEng.builder;
+package it.softEng.model.builder;
 
-import it.unical.softEng.composite.Book;
+import it.softEng.model.composite.Book;
 
 public class BookBuilder {
   private String title, author, ISBN;

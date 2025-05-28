@@ -1,6 +1,6 @@
-package it.unical.softEng.composite;
+package it.softEng.model.composite;
 
-import it.unical.softEng.visitor.Visitor;
+import it.softEng.model.visitor.Visitor;
 
 public interface ElementComposite {
   void show();

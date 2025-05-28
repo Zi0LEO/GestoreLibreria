@@ -1,6 +1,6 @@
-package it.unical.softEng.state;
+package it.softEng.model.state;
 
-import it.unical.softEng.composite.Book;
+import it.softEng.model.composite.Book;
 
 public abstract class ReadingState {
   Book book;

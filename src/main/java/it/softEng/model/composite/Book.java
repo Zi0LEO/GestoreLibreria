@@ -1,8 +1,8 @@
-package it.unical.softEng.composite;
+package it.softEng.model.composite;
 
-import it.unical.softEng.state.ReadingState;
-import it.unical.softEng.state.ToRead;
-import it.unical.softEng.visitor.Visitor;
+import it.softEng.model.state.ReadingState;
+import it.softEng.model.state.ToRead;
+import it.softEng.model.visitor.Visitor;
 
 public class Book implements ElementComposite {
   private String title, author, ISBN;

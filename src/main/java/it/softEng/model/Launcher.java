@@ -1,4 +1,4 @@
-package it.unical.softEng;
+package it.softEng.model;
 
 public class Launcher {
   public void launch() {

@@ -1,8 +1,8 @@
-package it.unical.softEng.composite;
+package it.softEng.model.composite;
 
 import java.util.LinkedList;
 import java.util.List;
-import it.unical.softEng.visitor.Visitor;
+import it.softEng.model.visitor.Visitor;
 
 public class Collection implements ElementComposite {
   private static int idCounter = 0;

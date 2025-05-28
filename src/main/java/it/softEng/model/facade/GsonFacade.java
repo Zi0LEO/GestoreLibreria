@@ -1,11 +1,11 @@
-package it.unical.softEng.facade;
+package it.softEng.model.facade;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.typeadapters.RuntimeTypeAdapterFactory;
-import it.unical.softEng.composite.Book;
-import it.unical.softEng.composite.Collection;
-import it.unical.softEng.composite.ElementComposite;
+import it.softEng.model.composite.Book;
+import it.softEng.model.composite.Collection;
+import it.softEng.model.composite.ElementComposite;
 
 import java.io.*;
 

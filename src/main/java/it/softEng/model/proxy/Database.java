@@ -1,6 +1,6 @@
-package it.unical.softEng.proxy;
+package it.softEng.model.proxy;
 
-import it.unical.softEng.composite.ElementComposite;
+import it.softEng.model.composite.ElementComposite;
 
 public interface Database {
   boolean create(ElementComposite element);
