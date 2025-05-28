@@ -1,4 +1,4 @@
-package it.softEng.controller;
+package it.softEng.view;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,7 +10,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class BackgroundController implements Initializable {
+public class MainController implements Initializable {
 
   @FXML
   private MediaView backgroundMediaView;
@@ -21,10 +21,17 @@ public class BackgroundController implements Initializable {
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
+    backgroundMediaView.sceneProperty().addListener((obs, oldScene, newScene) -> {
+      if (newScene != null) {
+        backgroundMediaView.fitWidthProperty().bind(newScene.widthProperty());
+
+      }
+    });
     file = new File("src/main/resources/video/minecraft.mp4");
     media = new Media(file.toURI().toString());
     mediaPlayer = new MediaPlayer(media);
     backgroundMediaView.setMediaPlayer(mediaPlayer);
+    mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
     mediaPlayer.play();
   }
 }

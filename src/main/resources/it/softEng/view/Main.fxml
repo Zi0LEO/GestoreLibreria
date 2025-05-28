@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.media.MediaView?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.softEng.controller.BackgroundController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.softEng.view.MainController">
    <children>
-      <StackPane prefHeight="400.0" prefWidth="600.0">
-         <children>
-            <MediaView fx:id="backgroundMediaView" fitHeight="200.0" fitWidth="200.0" />
-         </children>
-      </StackPane>
+      <MediaView fx:id="backgroundMediaView">
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+      </MediaView>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <left>
+            <VBox prefHeight="400.0" prefWidth="127.0" BorderPane.alignment="CENTER">
+               <effect>
+                  <GaussianBlur radius="20.5" />
+               </effect>
+            </VBox>
+         </left>
+      </BorderPane>
    </children>
-</AnchorPane>
+</StackPane>

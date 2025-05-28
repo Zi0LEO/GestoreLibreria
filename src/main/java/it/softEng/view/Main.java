@@ -18,9 +18,9 @@ public class Main extends Application {
       System.out.println("FXML URL: " + fxmlUrl);
       Scene scene = new Scene(root);
       stage.setTitle("My JavaFX App");
-      stage.setFullScreen(true);
-      stage.setResizable(false);
       stage.setScene(scene);
+      stage.setHeight(450);
+      stage.setWidth(800);
       stage.show();
     }catch(IOException e){
       e.printStackTrace();
