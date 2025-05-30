@@ -1,11 +1,11 @@
-package it.softEng.view;
+package it.softEng.view.abstractFactory;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.media.Media;
 
 
-public class MinecraftFactory implements GuiFactory{
+public class MinecraftFactory implements GuiFactory {
   @Override
   public Button createButton(String text) {
     return new MinecraftButton(text);

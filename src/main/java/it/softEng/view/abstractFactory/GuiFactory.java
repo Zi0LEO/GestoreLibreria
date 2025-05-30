@@ -1,4 +1,4 @@
-package it.softEng.view;
+package it.softEng.view.abstractFactory;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
