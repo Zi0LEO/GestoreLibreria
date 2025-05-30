@@ -19,7 +19,7 @@ public class Main extends Application {
   @Override
   public void start(Stage stage){
 
-    this.factory = new MinecraftFactory();
+    this.factory = MinecraftFactory.getInstance();
     double WIDTH = stage.getWidth();
     double HEIGHT = stage.getHeight();
 

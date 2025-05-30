@@ -6,6 +6,16 @@ import javafx.scene.media.Media;
 
 
 public class MinecraftFactory implements GuiFactory {
+  private static MinecraftFactory instance;
+  private MinecraftFactory() {}
+
+  public static MinecraftFactory getInstance() {
+    if (instance == null) {
+      instance = new MinecraftFactory();
+    }
+    return instance;
+  }
+
   @Override
   public Button createButton(String text) {
     return new MinecraftButton(text);
@@ -18,6 +28,6 @@ public class MinecraftFactory implements GuiFactory {
 
   @Override
   public Media createBackground() {
-    return new Media(getClass().getResource("/video/minecraft.mp4").toExternalForm());
+    return new Media(getClass().getResource("/video/minecraft2.mp4").toExternalForm());
   }
 }
