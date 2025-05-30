@@ -21,11 +21,14 @@ public class Main extends Application {
     double WIDTH = stage.getWidth();
     double HEIGHT = stage.getHeight();
 
+    stage.setMinWidth(500);
+    stage.setMinHeight(250);
     StackPane root = new StackPane();
     BorderPane mainContent = new BorderPane();
     VBox vbox = new VBox();
 
     Scene scene = new Scene(root);
+    scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
 
     Button button1 = factory.createButton("test1");
     Button button2 = factory.createButton("test2");
