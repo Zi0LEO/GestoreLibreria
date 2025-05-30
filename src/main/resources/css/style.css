@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'Minecraftia';
+    src: url("/fonts/Minecraftia-Regular.ttf");
+}
+
+.minecraft-button-label {
+
+    /* text */
+    -fx-font-family: 'Minecraftia';
+    -fx-padding: 12 0 0 0;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-text-fill: white;
+
+    /* background */
+    -fx-border-image-source: url("/images/minecraftButton.png");
+    -fx-border-image-slice: 7 fill;
+    -fx-border-image-width: 7;
+    -fx-border-image-repeat: repeat stretch;
+}
+
+.minecraft-button {
+    -fx-padding: 0;
+    -fx-border-color: black;
+    -fx-border-width: 3px;
+}
+
+.minecraft-button:hover {
+    -fx-border-color: white;
+}
