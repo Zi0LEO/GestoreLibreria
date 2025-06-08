@@ -3,8 +3,8 @@
     src: url("/fonts/Minecraftia-Regular.ttf");
 }
 
-.minecraft-button-label {
 
+.minecraft-button-label {
     /* text */
     -fx-font-family: 'Minecraftia';
     -fx-padding: 12 0 0 0;

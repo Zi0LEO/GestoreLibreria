@@ -48,12 +48,7 @@
             <version>24.0.1</version>
             <classifier>linux</classifier>
         </dependency>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-fxml</artifactId>
-            <version>24.0.1</version>
-            <classifier>linux</classifier>
-        </dependency>
+
 
     </dependencies>
 
