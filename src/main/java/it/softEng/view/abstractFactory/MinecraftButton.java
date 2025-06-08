@@ -14,6 +14,6 @@ public class MinecraftButton extends Button {
     this.setGraphic(label);
     this.getStyleClass().add("minecraft-button");
     this.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
-    this.setPrefSize(300,60);
+    this.setPrefSize(200,60);
   }
 }
