@@ -1,15 +1,15 @@
 package it.softEng.view.abstractFactory;
 
 import javafx.application.Platform;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.effect.Effect;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -18,7 +18,11 @@ import javafx.stage.Stage;
 
 
 public class MinecraftFactory implements GuiFactory {
+  private double topbarHeight;
+  private final double SPACING = 5;
+
   private static MinecraftFactory instance;
+  private Stage stage;
   private MinecraftFactory() {}
 
   public static MinecraftFactory getInstance() {
@@ -30,41 +34,75 @@ public class MinecraftFactory implements GuiFactory {
 
   @Override
   public Scene createMainScene(Stage stage) {
+    this.stage = stage;
 
     StackPane root = new StackPane();
     Scene scene = new Scene(root);
 
-    Button button1 = createButton("test1");
-    Button button2 = createButton("test2");
-    MediaView background = createBackground(stage);
+    MediaPlayer videoPlayer = createVideoPlayer(getVideo());
+
+    MediaView background = createBackground(videoPlayer);
     root.getChildren().add(background);
 
-    Pane sidebar = createSidebar(createBackground(stage), button1, button2);
-    root.getChildren().add(sidebar);
+    Button aggiuntaLibro = createButton("Aggiungi libro");
+    Button aggiuntaCollezione = createButton("Aggiungi collezione");
+    Button modificaElemento = createButton("Modifica libro");
+    Button button3 = createButton("...");
+    Button button4 = createButton("|||");
 
-    StackPane.setAlignment(sidebar, javafx.geometry.Pos.CENTER_LEFT);
+    Pane topbar = createTopBar(button3, button4);
+    root.getChildren().add(topbar);
+
+    Pane sidebar = createSidebar(createBackground(videoPlayer), aggiuntaLibro, aggiuntaCollezione, modificaElemento);
+    Platform.runLater(
+        () -> sidebar.setTranslateY(topbarHeight)
+    );
+    root.getChildren().add(sidebar);
 
     scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
     return scene;
   }
 
-  @Override
+  private Pane createTopBar(Button...buttons) {
+    HBox bar = new HBox();
+    bar.setSpacing(SPACING);
+    bar.setMaxHeight(topbarHeight);
+    bar.setPadding(new Insets(SPACING));
+
+    bar.getChildren().addAll(buttons);
+
+    bar.getStyleClass().add("minecraft-topbar");
+    Platform.runLater(() ->
+      bar.prefWidthProperty().bind(bar.getScene().widthProperty())
+    );
+    StackPane.setAlignment(bar, Pos.TOP_CENTER);
+    Platform.runLater(() ->
+      topbarHeight = bar.getHeight()
+    );
+    return bar;
+  }
+
   public Button createButton(String text) {
     return new MinecraftButton(text);
   }
 
-  @Override
   public Label createLabel() {
     return null;
   }
 
-  @Override
-  public MediaView createBackground(Stage stage) {
-    Media video = new Media(getClass().getResource("/video/minecraft2.mp4").toExternalForm());
-    MediaPlayer backgroundPlayer = new MediaPlayer(video);
-    backgroundPlayer.setAutoPlay(true);
-    backgroundPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-    MediaView background = new MediaView(backgroundPlayer);
+  private Media getVideo(){
+    return new Media(getClass().getResource("/video/minecraft.mp4").toExternalForm());
+  }
+
+  private MediaPlayer createVideoPlayer(Media media){
+    MediaPlayer player = new MediaPlayer(media);
+    player.setAutoPlay(true);
+    player.setCycleCount(MediaPlayer.INDEFINITE);
+    return player;
+  }
+
+  public MediaView createBackground(MediaPlayer player) {
+    MediaView background = new MediaView(player);
     background.fitWidthProperty().bind(stage.widthProperty());
     background.fitHeightProperty().bind(stage.heightProperty());
     background.setPreserveRatio(false);
@@ -77,6 +115,7 @@ public class MinecraftFactory implements GuiFactory {
     StackPane sidebar = new StackPane();
     Rectangle backgroundContainer = new Rectangle();
     VBox vbox = new VBox();
+    vbox.setSpacing(SPACING);
 
     backgroundContainer.setWidth(200);
     sidebar.setPrefWidth(200);
@@ -87,11 +126,12 @@ public class MinecraftFactory implements GuiFactory {
     background.setClip(backgroundContainer);
     background.setEffect(BLUR);
     sidebar.getChildren().add(background);
+    sidebar.setTranslateY(topbarHeight);
 
     vbox.getChildren().addAll(nodes);
     vbox.getStyleClass().add("minecraft-sidebar");
-    vbox.setSpacing(10);
     sidebar.getChildren().add(vbox);
+    StackPane.setAlignment(sidebar, Pos.CENTER_LEFT);
     return sidebar;
   }
 }
