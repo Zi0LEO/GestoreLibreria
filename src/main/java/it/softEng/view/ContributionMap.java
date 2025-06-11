@@ -9,7 +9,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 
 public class ContributionMap extends GridPane {
-  private final ContributionData data;
+  private ContributionData data;
   private static final int CELL_SIZE = 10;
   private static final int SPACING = 3;
 
@@ -27,7 +27,7 @@ public class ContributionMap extends GridPane {
         LocalDate date = start.plusWeeks(week).plusDays(day);
         boolean read = data.getData(date);
         Rectangle cell = new Rectangle(CELL_SIZE, CELL_SIZE);
-        cell.setFill(read ? Color.GREEN : Color.GRAY);
+        cell.setFill(read ? Color.web("#7ccf64") : Color.web("#2d2d2d"));
         this.add(cell, week, day);
       }
     }
