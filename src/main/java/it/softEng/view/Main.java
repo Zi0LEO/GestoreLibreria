@@ -20,7 +20,7 @@ public class Main extends Application {
     this.factory = MinecraftFactory.getInstance();
     Scene scene = this.factory.createMainScene(stage);
     stage.setMinHeight(600);
-    stage.setMinWidth(800);
+    stage.setMinWidth(1000);
 
     stage.setTitle("My JavaFX App");
     stage.setScene(scene);

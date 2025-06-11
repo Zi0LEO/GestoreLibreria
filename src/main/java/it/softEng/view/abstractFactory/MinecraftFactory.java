@@ -1,5 +1,7 @@
 package it.softEng.view.abstractFactory;
 
+import it.softEng.model.ContributionData;
+import it.softEng.view.ContributionMap;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -60,6 +62,9 @@ public class MinecraftFactory implements GuiFactory {
     root.getChildren().add(sidebar);
 
     scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+    GridPane heatmap = new ContributionMap(new ContributionData());
+    heatmap.setAlignment(Pos.BOTTOM_CENTER);
+    root.getChildren().add(heatmap);
     return scene;
   }
 
