@@ -62,7 +62,8 @@ public class MinecraftFactory implements GuiFactory {
     Pane sidebar = createSidebar(createBackground(videoPlayer),
         createButton("Aggiungi Libro"),
         createButton("Aggiungi Collezione"),
-        createButton("Modifica Libro"));
+        createButton("Modifica Libro"),
+        createButton("Visualizza lista"));
     Platform.runLater(
         () -> sidebar.setTranslateY(TOPBAR_HEIGHT)
     );
@@ -109,8 +110,17 @@ public class MinecraftFactory implements GuiFactory {
     scrollPane.setTranslateY(-TOPBAR_HEIGHT);
     scrollPane.setMaxHeight(heatmapContainer.getMaxHeight());
     Platform.runLater(() ->
-      scrollPane.maxWidthProperty().bind(heatmapContainer.widthProperty().add(SPACING))
-    );
+        scrollPane.maxWidthProperty().bind(scrollPane.getScene().widthProperty().subtract((SIDEBAR_WIDTH+SPACING)*2))
+        );
+    scrollPane.widthProperty().addListener((observable, oldValue, newValue) -> {
+      if(newValue.doubleValue() > heatmapContainer.getWidth()){
+        double padding = (newValue.doubleValue() - heatmapContainer.getWidth())/2;
+        scrollPane.setPadding(new Insets(0, 0,0,padding));
+      }
+      else{
+        scrollPane.setPadding(new Insets(0));
+      }
+    });
     scrollPane.setFitToHeight(true);
     scrollPane.setFitToWidth(false);
     scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
