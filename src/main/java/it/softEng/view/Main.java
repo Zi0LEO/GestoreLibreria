@@ -3,7 +3,9 @@ package it.softEng.view;
 import it.softEng.view.abstractFactory.GuiFactory;
 import it.softEng.view.abstractFactory.MinecraftFactory;
 import javafx.application.Application;
+import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -17,13 +19,18 @@ public class Main extends Application {
   @Override
   public void start(Stage stage){
 
-    this.factory = MinecraftFactory.getInstance();
-    Scene scene = this.factory.createMainScene(stage);
+    this.factory = MinecraftFactory.getInstance(stage);
+    Node background = factory.getBackground();
+    StackPane root = new StackPane(background);
+
+    Node mainContent = factory.getDashboard();
+    root.getChildren().add(mainContent);
+
+    stage.setScene(new Scene(root));
     stage.setMinHeight(600);
     stage.setMinWidth(1000);
 
-    stage.setTitle("My JavaFX App");
-    stage.setScene(scene);
+    stage.setTitle("Gestore Libreria");
     stage.show();
   }
 
