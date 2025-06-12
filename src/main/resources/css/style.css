@@ -7,6 +7,30 @@
     -fx-background-color: #00000F;
 }
 
+.minecraft-scroll-pane .scroll-bar .thumb {
+    -fx-background-color: #c0c0c0;
+    -fx-border-radius: 0;
+    -fx-border-width: 0 2 2 0;
+    -fx-border-color: #808080;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+.minecraft-scroll-pane .scroll-bar:horizontal{
+    -fx-pref-height: 10px;
+}
+.minecraft-scroll-pane .scroll-bar:vertical{
+    -fx-pref-width: 10px;
+}
+.minecraft-scroll-pane .scroll-bar{
+    -fx-background-color: #000000;
+    -fx-border-radius: 0;
+}
+.minecraft-scroll-pane .scroll-bar > .increment-button > .increment-arrow,
+.minecraft-scroll-pane .scroll-bar > .decrement-button > .decrement-arrow {
+    -fx-background-color: transparent;
+    -fx-padding: 0 0 0 0;
+}
+
 .minecraft-button-label {
     /* text */
     -fx-font-family: 'Minecraftia';
@@ -25,12 +49,12 @@
     -fx-border-image-repeat: stretch;
 }
 
-.scroll-pane {
+.minecraft-scroll-pane {
     -fx-background-color: transparent;
     -fx-background-insets: 0;
 }
 
-.scroll-pane .viewport {
+.minecraft-scroll-pane .viewport {
     -fx-background-color: transparent;
 }
 

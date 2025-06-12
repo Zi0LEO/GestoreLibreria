@@ -21,7 +21,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 
-
 public class MinecraftFactory implements GuiFactory {
   private final double TOPBAR_HEIGHT = 73;
   private final double SIDEBAR_WIDTH = 200;
@@ -106,9 +105,9 @@ public class MinecraftFactory implements GuiFactory {
 
   private ScrollPane getScrollable(Pane heatmapContainer) {
     ScrollPane scrollPane = new ScrollPane(heatmapContainer);
-    scrollPane.getStyleClass().add("scroll-pane");
+    scrollPane.getStyleClass().add("minecraft-scroll-pane");
     scrollPane.setTranslateY(-TOPBAR_HEIGHT);
-    scrollPane.setMaxHeight(heatmapContainer.getMaxHeight());
+    scrollPane.setMaxHeight(heatmapContainer.getMaxHeight() + 50);
     Platform.runLater(() ->
         scrollPane.maxWidthProperty().bind(scrollPane.getScene().widthProperty().subtract((SIDEBAR_WIDTH+SPACING)*2))
         );
