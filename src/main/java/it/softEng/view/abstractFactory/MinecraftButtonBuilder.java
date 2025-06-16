@@ -16,15 +16,7 @@ public class MinecraftButtonBuilder implements Builder<Region> {
   @Override
   public Region build() {
     Label label = createLabel(text);
-    label = new Label(text);
-    label.getStyleClass().add("minecraft-button-label");
-    label.setMaxWidth(Double.MAX_VALUE);
-    Button button = new Button();
-    button.getStyleClass().add("minecraft-button");
-    button.setPrefWidth(200);
-    button.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
-    button.setGraphic(label);
-    return button;
+    return createButton(label);
   }
 
   private Label createLabel(String text) {
@@ -32,5 +24,13 @@ public class MinecraftButtonBuilder implements Builder<Region> {
     label.getStyleClass().add("minecraft-button-label");
     label.setMaxWidth(Double.MAX_VALUE);
     return label;
+  }
+  private Button createButton(Label label) {
+    Button button = new Button();
+    button.getStyleClass().add("minecraft-button");
+    button.setPrefWidth(200);
+    button.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+    button.setGraphic(label);
+    return button;
   }
 }
