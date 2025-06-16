@@ -21,9 +21,6 @@ import java.util.Objects;
 
 
 public class MinecraftFactory extends GuiFactory {
-  private final double TOPBAR_HEIGHT = 73;
-  private final double SIDEBAR_WIDTH = 200;
-  private final double SPACING = 5;
 
   private static MinecraftFactory instance;
   private final Stage stage;
