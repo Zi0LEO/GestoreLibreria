@@ -1,0 +1,36 @@
+package it.softEng.view.abstractFactory;
+
+import javafx.scene.control.Button;
+import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.Label;
+import javafx.scene.layout.Region;
+import javafx.util.Builder;
+
+public class MinecraftButtonBuilder implements Builder<Region> {
+  private String text;
+
+  public MinecraftButtonBuilder(String text) {
+    this.text = text;
+  }
+
+  @Override
+  public Region build() {
+    Label label = createLabel(text);
+    label = new Label(text);
+    label.getStyleClass().add("minecraft-button-label");
+    label.setMaxWidth(Double.MAX_VALUE);
+    Button button = new Button();
+    button.getStyleClass().add("minecraft-button");
+    button.setPrefWidth(200);
+    button.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+    button.setGraphic(label);
+    return button;
+  }
+
+  private Label createLabel(String text) {
+    Label label = new Label(text);
+    label.getStyleClass().add("minecraft-button-label");
+    label.setMaxWidth(Double.MAX_VALUE);
+    return label;
+  }
+}

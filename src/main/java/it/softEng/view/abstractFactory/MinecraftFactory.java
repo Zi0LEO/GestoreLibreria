@@ -92,7 +92,7 @@ public class MinecraftFactory extends GuiFactory {
     heatmapContainer.getChildren().add(heatmap);
     HBox.setHgrow(heatmap, Priority.ALWAYS);
 
-    Button addEntry = createButton("Ho letto oggi");
+    Node addEntry = createButton("Ho letto oggi");
     heatmapContainer.getChildren().add(addEntry);
     HBox.setHgrow(addEntry, Priority.ALWAYS);
 
@@ -123,13 +123,13 @@ public class MinecraftFactory extends GuiFactory {
     return scrollPane;
   }
 
-  private Pane createTopBar(Button...buttons) {
+  private Pane createTopBar(Node... nodes) {
     HBox bar = new HBox();
     bar.setSpacing(SPACING);
     bar.setMaxHeight(TOPBAR_HEIGHT);
     bar.setPadding(new Insets(SPACING));
 
-    bar.getChildren().addAll(buttons);
+    bar.getChildren().addAll(nodes);
 
     bar.getStyleClass().add("minecraft-topbar");
     Platform.runLater(() ->
@@ -139,8 +139,8 @@ public class MinecraftFactory extends GuiFactory {
     return bar;
   }
 
-  public Button createButton(String text) {
-    return new MinecraftButton(text);
+  public Node createButton(String text) {
+    return new MinecraftButtonBuilder(text).build();
   }
 
   @Override
