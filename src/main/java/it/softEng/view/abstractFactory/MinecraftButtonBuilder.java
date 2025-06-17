@@ -10,7 +10,6 @@ public class MinecraftButtonBuilder implements ButtonBuilder {
   private final String text;
 
   public MinecraftButtonBuilder(String text) {
-    Button button = new Button();
     this.text = text;
   }
 

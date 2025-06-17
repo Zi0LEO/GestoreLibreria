@@ -8,7 +8,7 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 
 public class MinecraftTopBar implements TopBarBuilder {
-  private Node[] nodes;
+  private final Node[] nodes;
   public MinecraftTopBar(Node... nodes) {
     this.nodes = nodes;
   }

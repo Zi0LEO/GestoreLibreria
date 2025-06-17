@@ -12,7 +12,7 @@ public class MinecraftSidebarBuilder implements SidebarBuilder {
   private final Node[] nodes;
   private final Node background;
 
-  private DoubleProperty height = new SimpleDoubleProperty();
+  private final DoubleProperty height = new SimpleDoubleProperty();
 
   public MinecraftSidebarBuilder(Node background, Node...nodes) {
     this.nodes = nodes;
