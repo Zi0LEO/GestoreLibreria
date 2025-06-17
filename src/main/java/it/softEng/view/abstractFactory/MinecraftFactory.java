@@ -57,11 +57,9 @@ public class MinecraftFactory extends GuiFactory {
      sidebar.getStyleClass().add("minecraft-sidebar");
     root.getChildren().add(sidebar);
 
-    //topbar
-    Pane topbar = createTopBar(
-        createButton("Aiuto"),
-        createButton("Impostazioni")
-    );
+    Node test = new MinecraftButtonBuilder("test").build();
+
+    Region topbar = new MinecraftTopBar(test).build();
     root.getChildren().add(topbar);
 
 
@@ -115,22 +113,6 @@ public class MinecraftFactory extends GuiFactory {
     scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
     scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
     return scrollPane;
-  }
-
-  private Pane createTopBar(Node... nodes) {
-    HBox bar = new HBox();
-    bar.setSpacing(SPACING);
-    bar.setMaxHeight(TOPBAR_HEIGHT);
-    bar.setPadding(new Insets(SPACING));
-
-    bar.getChildren().addAll(nodes);
-
-    bar.getStyleClass().add("minecraft-topbar");
-    Platform.runLater(() ->
-      bar.prefWidthProperty().bind(stage.widthProperty())
-    );
-    StackPane.setAlignment(bar, Pos.TOP_CENTER);
-    return bar;
   }
 
   public Node createButton(String text) {
