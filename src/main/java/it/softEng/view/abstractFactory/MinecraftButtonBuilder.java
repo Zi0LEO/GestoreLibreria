@@ -1,15 +1,16 @@
 package it.softEng.view.abstractFactory;
 
+import it.softEng.view.ButtonBuilder;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
-import javafx.util.Builder;
 
-public class MinecraftButtonBuilder implements Builder<Region> {
-  private String text;
+public class MinecraftButtonBuilder implements ButtonBuilder {
+  private final String text;
 
   public MinecraftButtonBuilder(String text) {
+    Button button = new Button();
     this.text = text;
   }
 
