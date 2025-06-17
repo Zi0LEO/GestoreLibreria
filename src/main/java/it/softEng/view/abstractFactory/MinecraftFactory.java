@@ -2,19 +2,18 @@ package it.softEng.view.abstractFactory;
 
 import it.softEng.model.ContributionData;
 import it.softEng.view.ContributionMap;
+import it.softEng.view.MinecraftSettings;
+import it.softEng.view.MinecraftSidebarBuilder;
+import it.softEng.view.MinecraftTopBar;
 import javafx.application.Platform;
-import javafx.beans.binding.Bindings;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.effect.BoxBlur;
-import javafx.scene.effect.Effect;
 import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.util.Objects;
@@ -50,14 +49,12 @@ public class MinecraftFactory extends GuiFactory {
     StackPane root = new StackPane();
 
     //sidebar
-    Pane sidebar = createSidebar(getBackground(),
+     Region sidebar = createSidebar(getBackground(),
         createButton("Aggiungi Libro"),
         createButton("Aggiungi Collezione"),
         createButton("Modifica Libro"),
         createButton("Visualizza lista"));
-    Platform.runLater(
-        () -> sidebar.setTranslateY(TOPBAR_HEIGHT)
-    );
+     sidebar.getStyleClass().add("minecraft-sidebar");
     root.getChildren().add(sidebar);
 
     //topbar
@@ -78,7 +75,7 @@ public class MinecraftFactory extends GuiFactory {
 
   private Node createHeatmap() {
     HBox heatmapContainer = new HBox();
-    heatmapContainer.setMaxHeight(TOPBAR_HEIGHT*2);
+    heatmapContainer.setMaxHeight(MinecraftSettings.DEFAULT.topBarHeight()*2);
     heatmapContainer.setAlignment(Pos.CENTER);
 
     heatmapContainer.setSpacing(50);
@@ -98,10 +95,11 @@ public class MinecraftFactory extends GuiFactory {
   private ScrollPane getScrollable(Pane heatmapContainer) {
     ScrollPane scrollPane = new ScrollPane(heatmapContainer);
     scrollPane.getStyleClass().add("minecraft-scroll-pane");
-    scrollPane.setTranslateY(-TOPBAR_HEIGHT);
+    scrollPane.setTranslateY(-MinecraftSettings.DEFAULT.topBarHeight());
     scrollPane.setMaxHeight(heatmapContainer.getMaxHeight() + 50);
     Platform.runLater(() ->
-        scrollPane.maxWidthProperty().bind(scrollPane.getScene().widthProperty().subtract((SIDEBAR_WIDTH+SPACING)*2))
+        scrollPane.maxWidthProperty().bind(scrollPane.getScene().widthProperty().subtract(
+            (MinecraftSettings.DEFAULT.sidebarWidth()+MinecraftSettings.DEFAULT.spacing())*2))
         );
     scrollPane.widthProperty().addListener((_, _, newValue) -> {
       if(newValue.doubleValue() > heatmapContainer.getWidth()){
@@ -160,30 +158,8 @@ public class MinecraftFactory extends GuiFactory {
     return background;
   }
 
-  private static final Effect BLUR = new BoxBlur(15, 15, 3);
+  private Region createSidebar(Node background, Node...nodes){
+    return new MinecraftSidebarBuilder(background, nodes).build();
 
-  private Pane createSidebar(Node background, Node...nodes){
-    StackPane sidebar = new StackPane();
-    Rectangle backgroundContainer = new Rectangle();
-    VBox vbox = new VBox();
-    vbox.setSpacing(SPACING);
-
-    backgroundContainer.setWidth(SIDEBAR_WIDTH);
-    sidebar.setPrefWidth(SIDEBAR_WIDTH);
-    stage.setOnShown(_ -> {
-      sidebar.prefHeightProperty().bind(Bindings.subtract(stage.heightProperty(), TOPBAR_HEIGHT));
-      backgroundContainer.heightProperty().bind(stage.heightProperty());
-      sidebar.setTranslateY(TOPBAR_HEIGHT);
-      background.setTranslateY(-TOPBAR_HEIGHT);
-    });
-    background.setClip(backgroundContainer);
-    background.setEffect(BLUR);
-    sidebar.getChildren().add(background);
-
-    vbox.getChildren().addAll(nodes);
-    vbox.getStyleClass().add("minecraft-sidebar");
-    sidebar.getChildren().add(vbox);
-    StackPane.setAlignment(sidebar, Pos.CENTER_LEFT);
-    return sidebar;
   }
 }
