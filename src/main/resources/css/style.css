@@ -4,7 +4,7 @@
 }
 
 .minecraft-topbar{
-    -fx-background-color: #00000F;
+    -fx-background-color: #FFFFFF;
 }
 
 .minecraft-scroll-pane .scroll-bar .thumb {
@@ -78,4 +78,8 @@
 
 .minecraft-button:hover {
     -fx-border-color: white;
+}
+
+.minecraft-sidebar-background{
+    -fx-background-color: #000000;
 }

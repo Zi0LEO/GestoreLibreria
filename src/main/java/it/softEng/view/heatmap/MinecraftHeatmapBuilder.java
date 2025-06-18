@@ -2,8 +2,6 @@ package it.softEng.view.heatmap;
 
 import it.softEng.model.ContributionData;
 import it.softEng.view.MinecraftSettings;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
