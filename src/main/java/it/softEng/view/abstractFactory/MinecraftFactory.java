@@ -81,25 +81,6 @@ public class MinecraftFactory extends GuiFactory {
     return new MinecraftHeatmapBuilder().build();
   }
 
-  private ScrollPane getScrollable(Pane heatmapContainer) {
-    ScrollPane scrollPane = new ScrollPane(heatmapContainer);
-
-    Platform.runLater(() ->
-        scrollPane.maxWidthProperty().bind(scrollPane.getScene().widthProperty().subtract(
-            (MinecraftSettings.DEFAULT.sidebarWidth()+MinecraftSettings.DEFAULT.spacing())*2))
-        );
-    scrollPane.widthProperty().addListener((_, _, newValue) -> {
-      if(newValue.doubleValue() > heatmapContainer.getWidth()){
-        double padding = (newValue.doubleValue() - heatmapContainer.getWidth())/2;
-        scrollPane.setPadding(new Insets(0, 0,0,padding));
-      }
-      else{
-        scrollPane.setPadding(new Insets(0));
-      }
-    });
-    return scrollPane;
-  }
-
   public static Node createButton(String text) {
     return new MinecraftButtonBuilder(text).build();
   }

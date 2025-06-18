@@ -11,7 +11,7 @@ import javafx.scene.shape.Rectangle;
 
 public class MinecraftSidebarBuilder implements SidebarBuilder {
   private final Node[] nodes;
-  private Node background;
+  private final Node background;
 
   private final DoubleProperty height = new SimpleDoubleProperty();
 

@@ -16,9 +16,7 @@ import static it.softEng.view.abstractFactory.MinecraftFactory.createButton;
 
 public class MinecraftHeatmapBuilder implements HeatmapBuilder {
 
-  private ContributionData data;
-
-  DoubleProperty availableWidth = new SimpleDoubleProperty();
+  private final ContributionData data;
 
   public MinecraftHeatmapBuilder() {
     data = new ContributionData();
