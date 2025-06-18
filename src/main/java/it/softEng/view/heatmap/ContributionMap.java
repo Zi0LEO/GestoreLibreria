@@ -9,7 +9,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 
 public class ContributionMap extends GridPane {
-  private ContributionData data;
+  private final ContributionData data;
   private static final int CELL_SIZE = 10;
   private static final int SPACING = 3;
 
