@@ -1,10 +1,10 @@
 package it.softEng.view.abstractFactory;
 
-import it.softEng.model.ContributionData;
-import it.softEng.view.ContributionMap;
 import it.softEng.view.MinecraftSettings;
-import it.softEng.view.MinecraftSidebarBuilder;
-import it.softEng.view.MinecraftTopBar;
+import it.softEng.view.buttons.MinecraftButtonBuilder;
+import it.softEng.view.heatmap.MinecraftHeatmapBuilder;
+import it.softEng.view.sidebar.MinecraftSidebarBuilder;
+import it.softEng.view.topbar.MinecraftTopBar;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -38,63 +38,52 @@ public class MinecraftFactory extends GuiFactory {
 
   @Override
   public Node getDashboard() {
-    StackPane root = createRoot();
+    Region root = createRoot();
 
     root.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/style.css")).toExternalForm());
 
     return root;
   }
 
-  private StackPane createRoot() {
-    StackPane root = new StackPane();
+  private Region createRoot() {
+    BorderPane root = new BorderPane();
+
+    Region topbar = new MinecraftTopBar(
+        createButton("test"),
+        createButton("test2")
+    ).build();
+    root.setTop(topbar);
+
 
     //sidebar
-     Region sidebar = createSidebar(getBackground(),
+     Region sidebar = createSidebar(
         createButton("Aggiungi Libro"),
         createButton("Aggiungi Collezione"),
         createButton("Modifica Libro"),
         createButton("Visualizza lista"));
      sidebar.getStyleClass().add("minecraft-sidebar");
-    root.getChildren().add(sidebar);
 
-    Node test = new MinecraftButtonBuilder("test").build();
+     root.setLeft(sidebar);
 
-    Region topbar = new MinecraftTopBar(test).build();
-    root.getChildren().add(topbar);
-
+     Region padding = new Region();
+     padding.setMinWidth(MinecraftSettings.DEFAULT.sidebarWidth());
+     root.setRight(padding);
 
     //heatmap
     Node heatmap = createHeatmap();
-    StackPane.setAlignment(heatmap, Pos.BOTTOM_CENTER);
-    root.getChildren().add(heatmap);
+    BorderPane.setAlignment(heatmap, Pos.BOTTOM_CENTER);
+    root.setCenter(heatmap);
 
     return root;
   }
 
   private Node createHeatmap() {
-    HBox heatmapContainer = new HBox();
-    heatmapContainer.setMaxHeight(MinecraftSettings.DEFAULT.topBarHeight()*2);
-    heatmapContainer.setAlignment(Pos.CENTER);
-
-    heatmapContainer.setSpacing(50);
-
-    GridPane heatmap = new ContributionMap(new ContributionData());
-    heatmap.setAlignment(Pos.CENTER);
-    heatmapContainer.getChildren().add(heatmap);
-    HBox.setHgrow(heatmap, Priority.ALWAYS);
-
-    Node addEntry = createButton("Ho letto oggi");
-    heatmapContainer.getChildren().add(addEntry);
-    HBox.setHgrow(addEntry, Priority.ALWAYS);
-
-    return getScrollable(heatmapContainer);
+    return new MinecraftHeatmapBuilder().build();
   }
 
   private ScrollPane getScrollable(Pane heatmapContainer) {
     ScrollPane scrollPane = new ScrollPane(heatmapContainer);
-    scrollPane.getStyleClass().add("minecraft-scroll-pane");
-    scrollPane.setTranslateY(-MinecraftSettings.DEFAULT.topBarHeight());
-    scrollPane.setMaxHeight(heatmapContainer.getMaxHeight() + 50);
+
     Platform.runLater(() ->
         scrollPane.maxWidthProperty().bind(scrollPane.getScene().widthProperty().subtract(
             (MinecraftSettings.DEFAULT.sidebarWidth()+MinecraftSettings.DEFAULT.spacing())*2))
@@ -108,14 +97,10 @@ public class MinecraftFactory extends GuiFactory {
         scrollPane.setPadding(new Insets(0));
       }
     });
-    scrollPane.setFitToHeight(true);
-    scrollPane.setFitToWidth(false);
-    scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
-    scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
     return scrollPane;
   }
 
-  public Node createButton(String text) {
+  public static Node createButton(String text) {
     return new MinecraftButtonBuilder(text).build();
   }
 
@@ -140,8 +125,8 @@ public class MinecraftFactory extends GuiFactory {
     return background;
   }
 
-  private Region createSidebar(Node background, Node...nodes){
-    return new MinecraftSidebarBuilder(background, nodes).build();
+  private Region createSidebar(Node...nodes){
+    return new MinecraftSidebarBuilder(getBackground(), nodes).build();
 
   }
 }
