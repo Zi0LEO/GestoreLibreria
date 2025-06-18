@@ -7,9 +7,18 @@ import javafx.scene.layout.Region;
 
 public class MinecraftButtonBuilder implements ButtonBuilder {
   private final String text;
+  private double height = 50, width = 200;
 
   public MinecraftButtonBuilder(String text) {
     this.text = text;
+  }
+
+  @Override
+  public void setHeight(double height) {
+    this.height = height;
+  }
+  public void setWidth(double width) {
+    this.width = width;
   }
 
   @Override
@@ -27,7 +36,8 @@ public class MinecraftButtonBuilder implements ButtonBuilder {
   private Button createButton(Label label) {
     Button button = new Button();
     button.getStyleClass().add("minecraft-button");
-    button.setPrefWidth(150);
+    button.setPrefWidth(width);
+    button.setPrefHeight(height);
     button.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
     button.setGraphic(label);
     return button;
