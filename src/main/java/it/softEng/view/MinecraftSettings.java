@@ -5,5 +5,5 @@ public record MinecraftSettings(
     double topBarHeight,
     double sidebarWidth
 ) {
-  public static final MinecraftSettings DEFAULT = new MinecraftSettings(5, 73, 200);
+  public static final MinecraftSettings DEFAULT = new MinecraftSettings(5, 80, 200);
 }

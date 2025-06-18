@@ -1,4 +1,4 @@
-package it.softEng.view;
+package it.softEng.view.heatmap;
 
 import it.softEng.model.ContributionData;
 import javafx.scene.layout.GridPane;

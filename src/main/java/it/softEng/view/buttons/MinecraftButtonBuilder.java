@@ -1,6 +1,5 @@
-package it.softEng.view.abstractFactory;
+package it.softEng.view.buttons;
 
-import it.softEng.view.ButtonBuilder;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
@@ -28,7 +27,7 @@ public class MinecraftButtonBuilder implements ButtonBuilder {
   private Button createButton(Label label) {
     Button button = new Button();
     button.getStyleClass().add("minecraft-button");
-    button.setPrefWidth(200);
+    button.setPrefWidth(150);
     button.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
     button.setGraphic(label);
     return button;

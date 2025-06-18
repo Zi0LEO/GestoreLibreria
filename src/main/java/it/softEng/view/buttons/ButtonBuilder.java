@@ -1,4 +1,4 @@
-package it.softEng.view;
+package it.softEng.view.buttons;
 
 import javafx.scene.layout.Region;
 import javafx.util.Builder;
