@@ -38,6 +38,7 @@ public class MinecraftButtonBuilder implements ButtonBuilder {
     button.getStyleClass().add("minecraft-button");
     button.setPrefWidth(width);
     button.setPrefHeight(height);
+    button.setMinWidth(Region.USE_PREF_SIZE);
     button.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
     button.setGraphic(label);
     return button;

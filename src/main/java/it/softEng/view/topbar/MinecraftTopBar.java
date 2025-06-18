@@ -1,11 +1,10 @@
-package it.softEng.view;
+package it.softEng.view.topbar;
 
-import javafx.geometry.Insets;
+import it.softEng.view.MinecraftSettings;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
-import javafx.scene.layout.StackPane;
 
 public class MinecraftTopBar implements TopBarBuilder {
   private final Node[] nodes;
@@ -16,14 +15,11 @@ public class MinecraftTopBar implements TopBarBuilder {
   @Override
   public Region build() {
     HBox bar = new HBox();
+    bar.setAlignment(Pos.CENTER_LEFT);
+    bar.setPrefHeight(MinecraftSettings.DEFAULT.topBarHeight());
     bar.setSpacing(MinecraftSettings.DEFAULT.spacing());
-    bar.setMaxHeight(MinecraftSettings.DEFAULT.topBarHeight());
-    bar.setPadding(new Insets(MinecraftSettings.DEFAULT.spacing()));
-
     bar.getChildren().addAll(nodes);
-
     bar.getStyleClass().add("minecraft-topbar");
-    StackPane.setAlignment(bar, Pos.TOP_CENTER);
     return bar;
   }
 }
